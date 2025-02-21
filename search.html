@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <title>Search Results - Six Estate Consult</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html"><img src="images/logo.png" alt="logo"></a>  Six Estate Consult</div>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">&#9776;</button>
+        <nav class="nav-menu">
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="best-deals.html">Best Deals</a></li>
+                <li><a href="for-sale.html">For Sale</a></li>
+                <li><a href="for-rent.html">For Rent</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search properties...">
+            <button>Search</button>
+        </div>
+    </header>
+    
+    <main>
+        <section class="search-results">
+            <h2>Search Results</h2>
+            <div id="results-container">
+                <!-- Search results will be populated here -->
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+
+            <div class="contact-sec">
+                <h2>Contact Us</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Six Estate Consult - Your trusted partner in real estate solutions.
+                    <br>Our mission is to provide exceptional service and value to our clients.
+                    <br>Our vision is to be the leading Real Estate Consultancy in the Region.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="best-deals.html">Best Deals</a></li>
+                    <li><a href="for-sale.html">For Sale</a></li>
+                    <li><a href="for-rent.html">For Rent</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: info@sixestateconsult.com</p>
+                <p>Phone: +233 557034239/ +233 508744470</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Six Estate Consult. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+    <script>
+        // Get search term from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchTerm = urlParams.get('q');
+        
+        // Display search term
+        const resultsContainer = document.getElementById('results-container');
+        if (searchTerm) {
+            resultsContainer.innerHTML = `<p>Showing results for: <strong>${searchTerm}</strong></p>`;
+        } else {
+            resultsContainer.innerHTML = '<p>Please enter a search term</p>';
+        }
+    </script>
+
+</body>
+</html>
